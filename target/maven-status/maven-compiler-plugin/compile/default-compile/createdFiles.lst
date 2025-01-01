@@ -1,0 +1,16 @@
+MetalSurface\example\MetalSurfaceDetector\service\MetalProductService.class
+MetalSurface\example\MetalSurfaceDetector\util\MetalProductMapper.class
+MetalSurface\example\MetalSurfaceDetector\util\DefectMapper.class
+MetalSurface\example\MetalSurfaceDetector\util\ImageUtil.class
+MetalSurface\example\MetalSurfaceDetector\repository\MetalProductRepository.class
+MetalSurface\example\MetalSurfaceDetector\entity\Defect.class
+MetalSurface\example\MetalSurfaceDetector\entity\MetalProduct.class
+MetalSurface\example\MetalSurfaceDetector\dto\DefectDTO.class
+MetalSurface\example\MetalSurfaceDetector\repository\DefectRepository.class
+MetalSurface\example\MetalSurfaceDetector\restController\DefectController.class
+MetalSurface\example\MetalSurfaceDetector\MetalSurfaceDetectorApplication.class
+MetalSurface\example\MetalSurfaceDetector\dto\MetalProductDTO.class
+MetalSurface\example\MetalSurfaceDetector\entity\Defect$DefectBuilder.class
+MetalSurface\example\MetalSurfaceDetector\dto\DefectDTO$DefectDTOBuilder.class
+MetalSurface\example\MetalSurfaceDetector\restController\MetalProductController.class
+MetalSurface\example\MetalSurfaceDetector\service\DefectService.class
