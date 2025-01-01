@@ -39,7 +39,7 @@ public class DefectService {
 
         return Defect.builder()
                 .id(dto.getId())
-                .metalProduct(metalProduct) // MetalProduct burada setleniyor
+                .metalProduct(metalProduct)
                 .defectType(dto.getDefectType())
                 .coordinates(dto.getCoordinates())
                 .confidenceRate(dto.getConfidenceRate())
@@ -67,10 +67,8 @@ public class DefectService {
     public List<DefectDTO> getDefectDtosByMetalProductId(Long metalProductId) {
         List<Defect> defects = defectRepository.getDefectsByMetalProductId(metalProductId);
 
-        // DefectDTO nesnelerini oluşturmak için bir liste başlat
         List<DefectDTO> defectDTOs = new ArrayList<>();
 
-        // Her bir Defect varlığını DefectDTO'ya dönüştür
         for (Defect defect : defects) {
             DefectDTO defectDTO = toDTO(defect);
             defectDTOs.add(defectDTO);

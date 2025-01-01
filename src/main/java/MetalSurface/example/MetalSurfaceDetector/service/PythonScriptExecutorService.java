@@ -55,14 +55,12 @@ public class PythonScriptExecutorService {
             currentProcess = processBuilder.start();
             isRunning = true;
 
-            // Python çıktılarını asenkron okuma
             new Thread(() -> {
                 try (BufferedReader reader = new BufferedReader(
                         new InputStreamReader(currentProcess.getInputStream()))) {
                     String line;
                     while ((line = reader.readLine()) != null && isRunning) {
                         logger.info("Python output: " + line);
-                        // WebSocket ile client'a bilgi gönderme
                         sendStatusUpdate("running", line);
                     }
                 } catch (IOException e) {
@@ -71,7 +69,6 @@ public class PythonScriptExecutorService {
                 }
             }).start();
 
-            // Process durumunu kontrol etme
             new Thread(() -> {
                 try {
                     int exitCode = currentProcess.waitFor();

@@ -25,7 +25,6 @@ public class DetectionController {
         try {
             started = pythonScriptExecutorService.startDetectionScript();
         } catch (Exception e) {
-            // Eğer exception fırlatılırsa, started false olur ve mesajı da hata olarak döndürebiliriz
             started = false;
             errorMessage = "Failed to start detection: " + e.getMessage();
         }

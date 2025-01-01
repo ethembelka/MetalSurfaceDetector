@@ -8,10 +8,10 @@ import lombok.*;
 @AllArgsConstructor
 public class DefectDTO {
     private Long id;
-    private Long metalProductId; // MetalProduct ID'si
-    private String defectType; // Hatanın tipi
-    private String coordinates; // Hata koordinatları
-    private Double confidenceRate; // Tahmin oranı
+    private Long metalProductId;
+    private String defectType;
+    private String coordinates;
+    private Double confidenceRate;
 
     public Long getId() {
         return id;

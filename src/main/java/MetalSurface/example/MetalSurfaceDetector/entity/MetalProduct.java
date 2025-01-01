@@ -21,17 +21,17 @@ public class MetalProduct {
     private Long id;
 
     @Lob
-    private byte[] originalImage; // Orijinal metal görüntüsü
+    private byte[] originalImage; // base64 byte
 
     @Lob
-    private byte[] processedImage; // Model çıktısından sonraki görüntü
+    private byte[] processedImage;
 
-    private String name; // Ürün ismi
+    private String name;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDateTime timestamp; // Görüntü zamanı
+    private LocalDateTime timestamp;
 
-    private boolean defective; // Hatalı ürün flagi
+    private boolean defective;
 
     @OneToMany(mappedBy = "metalProduct")
     private List<Defect> defects;

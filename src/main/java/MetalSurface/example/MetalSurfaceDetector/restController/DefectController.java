@@ -23,13 +23,10 @@ public class DefectController {
     @PostMapping
     public ResponseEntity<?> createDefect(@RequestBody DefectDTO defectDTO) {
         try {
-            // DTO'dan Entity'e dönüştürme
             Defect defect = defectService.toEntity(defectDTO);
 
-            // Hata kaydetme işlemi
             Defect savedDefect = defectService.saveDefect(defect);
 
-            // Kaydedilen entity'den DTO oluşturma
             DefectDTO savedDefectDTO = defectService.toDTO(savedDefect);
 
             return ResponseEntity.ok(savedDefectDTO);

@@ -14,16 +14,15 @@ public class MetalProductDTO {
 
     private Long id;
 
-    private String name; // Ürün ismi
+    private String name;
+    private String originalImage; // base64
 
-    private String originalImage; // Orijinal metal görüntüsü (Base64 formatında)
-
-    private String processedImage; // Model çıktısından sonraki görüntü (Base64 formatında)
+    private String processedImage; // base64
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDateTime timestamp; // Görüntü zamanı
+    private LocalDateTime timestamp;
 
-    private boolean defective; // Hatalı ürün flagi
+    private boolean defective;
 
     private List<DefectDTO> defectDTOS;
 

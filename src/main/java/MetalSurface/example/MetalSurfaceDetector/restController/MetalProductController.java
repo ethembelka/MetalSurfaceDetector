@@ -40,10 +40,8 @@ public class MetalProductController {
     public ResponseEntity<?> createMetalProduct(@RequestBody MetalProductDTO productDTO) {
         try {
 
-            // DTO'dan Entity'ye dönüştürme
             MetalProduct product = metalProductService.toEntity(productDTO);
 
-            // Servis çağrısı
             MetalProduct savedProduct = metalProductService.saveMetalProduct(product);
 
             if (productDTO.getDefectDTOS() != null && !productDTO.getDefectDTOS().isEmpty()) {
@@ -54,17 +52,14 @@ public class MetalProductController {
                 }
             }
 
-            // Entity'den DTO'ya dönüştürme
             MetalProductDTO savedProductDTO = metalProductService.toDTO(savedProduct);
 
             webSocketService.sendMetalProduct(savedProductDTO);
 
             return ResponseEntity.ok(savedProductDTO);
         } catch (IllegalArgumentException e) {
-            // Dönüştürme sırasında hata oluşursa
             return ResponseEntity.badRequest().body("Error: " + e.getMessage());
         } catch (Exception e) {
-            // Diğer beklenmeyen hatalar
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An unexpected error occurred: " + e.getMessage());
         }
@@ -80,17 +75,14 @@ public class MetalProductController {
     @GetMapping
     public ResponseEntity<?> getAllMetalProducts() {
         try {
-            // Tüm ürünleri servisten al
             List<MetalProduct> products = metalProductService.getAllMetalProducts();
 
-            // Entity'leri DTO'lara dönüştür
             List<MetalProductDTO> productDTOs = products.stream()
                     .map(MetalProductMapper::toDTO)
                     .collect(Collectors.toList());
 
             return ResponseEntity.ok(productDTOs);
         } catch (Exception e) {
-            // Beklenmeyen hataları ele al
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An error occurred while retrieving metal products: " + e.getMessage());
         }

@@ -18,13 +18,13 @@ public class Defect {
 
     @ManyToOne
     @JoinColumn(name = "metal_product_id")
-    private MetalProduct metalProduct; // İlgili metal ürün
+    private MetalProduct metalProduct;
 
-    private String defectType; // Hatanın tipi
+    private String defectType;
 
-    private String coordinates; // Hata koordinatları (örneğin: "x1,y1,x2,y2")
+    private String coordinates;
 
-    private Double confidenceRate; // Tahmin oranı
+    private Double confidenceRate;
 
 }
 
