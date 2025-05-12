@@ -55,8 +55,13 @@ out/
 
 # VS Code
 .vscode/
+
+# IntelliJ
 .idea/
-target/
+
+
+# Maven compile
+/target/
 
 # OS specific files
 .DS_Store
